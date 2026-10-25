@@ -45,7 +45,6 @@ if [ "$CLEAN" -eq 1 ]; then
 fi
 
 if [ ! -d "$BUILD" ]; then
-  mkdir -p "$HIP_TESTS/.cmake-stubs"
   cmake -S "$HIP_TESTS/catch" -B "$BUILD" -GNinja \
     -DHIP_PLATFORM=amd \
     -DCMAKE_HIP_ARCHITECTURES=spvcpu \
@@ -54,8 +53,8 @@ if [ ! -d "$BUILD" ]; then
     -DBUILD_CONTRACT_TESTS=OFF \
     -DCMAKE_PREFIX_PATH="$INSTALL" \
     -DCMAKE_INSTALL_PREFIX="$BUILD/install" \
-    -Dhiprtc_DIR="$HIP_TESTS/.cmake-stubs" \
-    -Dhsa-runtime64_DIR="$HIP_TESTS/.cmake-stubs" \
+    -Dhiprtc_DIR="$THIS_DIR/.cmake-stubs" \
+    -Dhsa-runtime64_DIR="$THIS_DIR/.cmake-stubs" \
     -DCMAKE_C_COMPILER="$INSTALL/lib/llvm/bin/clang" \
     -DCMAKE_CXX_COMPILER="$INSTALL/lib/llvm/bin/clang++" \
     -DCMAKE_HIP_COMPILER="$INSTALL/lib/llvm/bin/clang++"
