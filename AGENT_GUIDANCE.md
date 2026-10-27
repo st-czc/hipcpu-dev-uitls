@@ -7,12 +7,16 @@ to the super-project root.
 
 - `compiler/llvm-project` — the main LLVM and Clang compiler. It is based on an
   upstream main commit.
-- `compiler/amd-llvm` — a pruned checkout of the same repo (the AMD-side
-  pieces: comgr, device-libs, hipcc, …). It builds against `compiler/llvm-project`.
+- `compiler/amd-llvm` — a pruned and customed checkout of the ROCm/llvm-project
+  (the AMD-side pieces: comgr, device-libs, hipcc, …).
+  It builds against `compiler/llvm-project`.
 - `compiler/hipcpu-passes` — the pass plugin for the SYCL Native CPU backend.
   It builds against `compiler/llvm-project`.
-- `compiler/intel-llvm` — a full intel/llvm checkout. It is the reference
-  source for `compiler/hipcpu-passes`.
+  It is a pruned and customed checkout of the ROCm/llvm-project
+- `compiler/hipcpu-artifacts` — prebuilt `libsycl-nativecpu_utils.bc` for
+  `compiler/hipcpu-passes`, built from `intel-llvm`.
+- `compiler/hipcpu-artifacts/intel-llvm` — a full intel/llvm checkout. It is the
+  reference source for `compiler/hipcpu-passes`.
 - `rocm-systems/projects/clr` — the HIP runtime. The CPU backend code is in
   `clr/rocclr/device/cpu`.
 - `hipcpu-dev-utils/hip-tests` — the HIP unit-test harness.
