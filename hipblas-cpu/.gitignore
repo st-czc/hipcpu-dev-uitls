@@ -1,0 +1,5 @@
+/out/
+/build/
+/install/
+/rocblas_stubs.cpp
+/cmake/hsa-runtime64-stub/
