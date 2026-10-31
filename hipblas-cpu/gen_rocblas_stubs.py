@@ -38,6 +38,8 @@ for src in KEPT_SOURCES:
 
 # axpy kernel sources use a macro, so list their function names here.
 kept.update({"rocblas_haxpy", "rocblas_saxpy", "rocblas_daxpy", "rocblas_caxpy", "rocblas_zaxpy"})
+# GEMM is implemented in blas3/rocblas_gemm_host.cpp (OpenBLAS-backed).
+kept.update({"rocblas_sgemm", "rocblas_dgemm", "rocblas_cgemm", "rocblas_zgemm"})
 
 text = FUNCTIONS_HEADER.read_text()
 pat = re.compile(r"ROCBLAS_EXPORT\s+(.*?)\s*;", re.DOTALL)
